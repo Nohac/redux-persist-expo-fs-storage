@@ -1,11 +1,10 @@
 /* @flow */
-import fs from 'react-native-fs';
+import { FileSystem } from 'expo';
 
-export const DocumentDir = fs.DocumentDirectoryPath;
-export const CacheDir = fs.CachesDirectoryPath;
+export const DocumentDir = FileSystem.documentDirectory;
+export const CacheDir = FileSystem.cacheDirectory;
 
 const resolvePath = (...paths: Array<string>) =>
-  '/' +
   paths
     .join('/')
     .split('/')
@@ -47,8 +46,10 @@ const FSStorage = (
     callback?: ?(error: ?Error) => void,
   ): Promise<void> =>
     withCallback(callback, async () => {
-      await fs.mkdir(baseFolder);
-      await fs.writeFile(pathForKey(key), value, 'utf8');
+      await FileSystem.makeDirectoryAsync(baseFolder, {
+        intermediates: true,
+      });
+      await FileSystem.writeAsStringAsync(pathForKey(key), value);
     });
 
   const getItem = (
@@ -56,9 +57,10 @@ const FSStorage = (
     callback?: ?(error: ?Error, result: ?string) => void,
   ): Promise<?string> =>
     withCallback(callback, async () => {
-      if (await fs.exists(pathForKey(key))) {
-        const data = await fs.readFile(pathForKey(key), 'utf8');
-        return data;
+      const pathKey = pathForKey(key);
+      const { exists } = await FileSystem.getInfoAsync(pathKey);
+      if (exists) {
+        return await FileSystem.readAsStringAsync(pathKey);
       }
     });
 
@@ -67,21 +69,23 @@ const FSStorage = (
     callback?: ?(error: ?Error) => void,
   ): Promise<void> =>
     withCallback(callback, async () => {
-      if (await fs.exists(pathForKey(key))) {
-        await fs.unlink(pathForKey(key));
-      }
+      await FileSystem.deleteAsync(pathForKey(key), {
+        idempotent: true,
+      });
     });
 
   const getAllKeys = (
     callback?: ?(error: ?Error, keys: ?Array<string>) => void,
   ) =>
     withCallback(callback, async () => {
-      await fs.mkdir(baseFolder);
-      const files = await fs.readDir(baseFolder);
-      const fileNames = files
-        .filter(file => file.isFile())
-        .map(file => decodeURIComponent(file.name));
-      return fileNames;
+      await FileSystem.makeDirectoryAsync(baseFolder, {
+        intermediates: true,
+      });
+      const baseFolderLength = baseFolder.length;
+      const files = await FileSystem.readDirectoryAsync(baseFolder);
+      return files.map(fileUri =>
+        decodeURIComponent(fileUri.substring(baseFolderLength)),
+      );
     });
 
   return {
