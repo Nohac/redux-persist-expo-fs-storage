@@ -14,7 +14,7 @@
   "main": "lib/index.js",
   "scripts": {
     "prettier": "prettier --write index.js",
-    "build": "babel index.js -- -d lib/",
+    "build": "yarn run babel index.js -- -d lib/",
     "prepublish": "yarn run build"
   },
   "dependencies": {
