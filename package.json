@@ -1,7 +1,7 @@
 {
-  "name": "redux-persist-fs-storage",
+  "name": "redux-persist-expo-fs-storage",
   "version": "1.2.1",
-  "description": "Redux-Persist storage engine for React Native file system",
+  "description": "Redux-Persist storage engine for Expo file system",
   "repository": "https://github.com/leethree/redux-persist-fs-storage.git",
   "author": "LeeThree <leethree@users.noreply.github.com>",
   "license": "MIT",
