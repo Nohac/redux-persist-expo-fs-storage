@@ -17,12 +17,10 @@
     "build": "yarn run babel index.js -- -d lib/",
     "prepublish": "yarn run build"
   },
-  "dependencies": {
-    "expo": "^25.0.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
+    "expo": "^25.0.0",
     "flow-bin": "0.63.1",
     "prettier": "1.9.2"
   },
