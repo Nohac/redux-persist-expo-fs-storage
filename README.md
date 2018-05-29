@@ -9,7 +9,7 @@ Credits to [techwes](https://github.com/techwes/redux-persist-expo-fs-storage) f
 ```
 yarn add https://github.com/nohac/redux-persist-expo-fs-storage
 ```
-note: No yet published to npm
+note: Not yet published to npm
 
 ### Usage
 
