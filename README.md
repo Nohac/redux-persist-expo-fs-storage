@@ -1,21 +1,16 @@
-# Redux Persist FS Storage
+# Redux Persist FS Storage for Expo
 
-[Redux Persist](https://github.com/rt2zz/redux-persist/) storage engine for React Native file system
+[Redux Persist](https://github.com/rt2zz/redux-persist/) storage engine for React Native Expo file system, this wil also work for [Apollo Persist](https://github.com/apollographql/apollo-cache-persist)
 
 Inspired by [redux-persist-filesystem-storage](https://github.com/robwalkerco/redux-persist-filesystem-storage), this module works as adapter between [react-native-fs](https://github.com/itinance/react-native-fs) and [redux-persist](https://github.com/rt2zz/redux-persist/). 
+Credits to [techwes](https://github.com/techwes/redux-persist-expo-fs-storage) for porting this to the Expo FileSystem
 
 ### Install
 
 ```
-yarn add react-native-fs redux-persist-fs-storage
+yarn add https://github.com/nohac/redux-persist-expo-fs-storage
 ```
-
-This will install `react-native-fs` as dependency. So make sure to link it natively:
-```
-react-native link react-native-fs
-```
-
-See `react-native-fs`'s [documentation](https://github.com/itinance/react-native-fs) for details.
+note: No yet published to npm
 
 ### Usage
 
