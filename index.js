@@ -46,9 +46,12 @@ const FSStorage = (
     callback?: ?(error: ?Error) => void,
   ): Promise<void> =>
     withCallback(callback, async () => {
-      await FileSystem.makeDirectoryAsync(baseFolder, {
-        intermediates: true,
-      });
+      const info = await FileSystem.getInfoAsync(baseFolder);
+      if (info.exists == false) {
+        await FileSystem.makeDirectoryAsync(baseFolder, {
+          intermediates: true,
+        });
+      }
       await FileSystem.writeAsStringAsync(pathForKey(key), value);
     });
 
