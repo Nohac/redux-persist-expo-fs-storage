@@ -15,7 +15,7 @@ note: Not yet published to npm
 
 ```js
 import { persistStore } from 'redux-persist'
-import FSStorage from 'redux-persist-fs-storage';
+import FSStorage from 'redux-persist-expo-fs-storage';
 
 const persistor = persistStore(store, {storage: FSStorage()});
 ```
@@ -24,7 +24,7 @@ The default storage location is a folder called `reduxPersist` in the document d
 
 ```js
 import { persistStore } from 'redux-persist'
-import FSStorage, { CacheDir } from 'redux-persist-fs-storage';
+import FSStorage, { CacheDir } from 'redux-persist-expo-fs-storage';
 
 const cachePersistor = persistStore(store, {storage: FSStorage(CacheDir, 'myApp')});
 ```
