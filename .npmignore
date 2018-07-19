@@ -1,0 +1,5 @@
+# Ignore everything
+*
+
+# Include lib files
+!lib/index.js
