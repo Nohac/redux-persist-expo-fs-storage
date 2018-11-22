@@ -9,7 +9,6 @@ Credits to [techwes](https://github.com/techwes/redux-persist-expo-fs-storage) f
 ```
 yarn add redux-persist-expo-fs-storage
 ```
-note: Not yet published to npm
 
 ### Usage
 
