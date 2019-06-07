@@ -12,7 +12,9 @@
     "AsyncStorage"
   ],
   "main": "lib/index.js",
-  "files": "lib",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "prettier": "prettier --write index.js",
     "build": "yarn run babel index.js -- -d lib/",
@@ -21,13 +23,13 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
-    "expo": "^25.0.0",
     "flow-bin": "0.63.1",
     "prettier": "1.9.2"
   },
   "peerDependencies": {
     "react": "^16.2.0",
-    "react-native": ">=0.50.0"
+    "react-native": ">=0.50.0",
+    "expo-file-system": "^5.0.1"
   },
   "prettier": {
     "singleQuote": true,
