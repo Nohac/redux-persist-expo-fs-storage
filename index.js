@@ -1,5 +1,5 @@
 /* @flow */
-import { FileSystem } from 'expo';
+import * as FileSystem from 'expo-file-system';
 
 export const DocumentDir = FileSystem.documentDirectory;
 export const CacheDir = FileSystem.cacheDirectory;
