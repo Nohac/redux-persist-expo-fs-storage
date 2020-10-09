@@ -8,7 +8,7 @@ const resolvePath = (...paths: Array<string>) =>
   paths
     .join('/')
     .split('/')
-    .filter(part => part && part !== '.')
+    .filter((part) => part && part !== '.')
     .join('/');
 
 // Wrap function to support both Promise and callback
@@ -84,11 +84,9 @@ const FSStorage = (
       await FileSystem.makeDirectoryAsync(baseFolder, {
         intermediates: true,
       });
-      const baseFolderLength = baseFolder.length;
+
       const files = await FileSystem.readDirectoryAsync(baseFolder);
-      return files.map(fileUri =>
-        decodeURIComponent(fileUri.substring(baseFolderLength)),
-      );
+      return files.map((fileUri) => decodeURIComponent(fileUri));
     });
 
   return {
