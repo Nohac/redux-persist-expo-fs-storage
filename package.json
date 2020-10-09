@@ -1,6 +1,6 @@
 {
   "name": "redux-persist-expo-fs-storage",
-  "version": "1.2.2",
+  "version": "2.1.0",
   "description": "Redux-Persist storage engine for Expo file system",
   "repository": "https://github.com/nohac/redux-persist-expo-fs-storage",
   "author": "Jonas Rudlang <jonas.rudlang@gmail.com>",
@@ -17,19 +17,19 @@
   ],
   "scripts": {
     "prettier": "prettier --write index.js",
-    "build": "yarn run babel index.js -- -d lib/",
+    "build": "yarn run babel index.js -d lib/",
     "prepublish": "yarn run build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
-    "flow-bin": "0.63.1",
-    "prettier": "1.9.2"
+    "flow-bin": "0.135.0",
+    "prettier": "2.1.2"
   },
   "peerDependencies": {
-    "react": "^16.2.0",
-    "react-native": ">=0.50.0",
-    "expo-file-system": "^5.0.1"
+    "react": "^16.13.1",
+    "react-native": ">=0.63.3",
+    "expo-file-system": "^9.2.0"
   },
   "prettier": {
     "singleQuote": true,
